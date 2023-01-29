@@ -13,9 +13,4 @@ def solution(numbers):
                 break
             count+=1
         answer.append(2**(count-1) + i)
-        # for j in range(i+1,10**15):
-        #     temp = bin(i^j).count('1')
-        #     if temp < 3:
-        #         answer.append(j)
-        #         break
     return answer
