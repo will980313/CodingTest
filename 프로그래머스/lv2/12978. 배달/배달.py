@@ -1,19 +1,19 @@
 from collections import deque
 def bfs(graph, K):
     visited = [0] * len(graph)
-    que = deque([(1,0)])
+    que = deque([1])
+    answer = 0
     while que:
         loc = que.popleft()
-        for i, d in graph[loc[0]]:
+        for i, d in graph[loc]:
             if i == 1:
                 continue
             if visited[i -1] == 0:
-                visited[i -1] = visited[loc[0]-1] + d
-                que.append((i,d))
-            elif visited[i -1] > visited[loc[0]-1] + d:
-                visited[i -1] = visited[loc[0]-1] + d
-                que.append((i,d))
-    answer = 0
+                visited[i -1] = visited[loc-1] + d
+                que.append(i)
+            elif visited[i -1] > visited[loc-1] + d:
+                visited[i -1] = visited[loc-1] + d
+                que.append(i)
     for i in visited:
         if i <= K:
             answer+=1
