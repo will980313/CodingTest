@@ -1,6 +1,6 @@
 def solution(name, yearning, photo):
     def check(nd, x):
-        ret = name_dict.get(x)
+        ret = nd.get(x)
         if ret is None:
             ret = 0
         return ret
